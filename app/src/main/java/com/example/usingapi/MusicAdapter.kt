@@ -14,7 +14,8 @@ class MusicAdapter(private val musicList: ArrayList<Music>) : RecyclerView.Adapt
     class ViewHolder(itemView: View ): RecyclerView.ViewHolder(itemView){
         val img = itemView.findViewById<ImageView>(R.id.imageView);
         val rank_songname = itemView.findViewById<TextView>(R.id.rank_songname);
-        val artist_year = itemView.findViewById<TextView>(R.id.artist_year);
+        // val artist_year = itemView.findViewById<TextView>(R.id.artist_year);
+        val artist_streams = itemView.findViewById<TextView>(R.id.artist_year);
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -31,6 +32,7 @@ class MusicAdapter(private val musicList: ArrayList<Music>) : RecyclerView.Adapt
         val music = musicList[position]
         Glide.with(context).load(music.imageUrl).into(holder.img);
         holder.rank_songname.text = music.songname  //music.rank.toString() + "-"music.songname;
-        holder.artist_year.text = music.artist //+ "  " + music.year.toString();
+        // holder.artist_year.text = music.artist //+ "  " + music.year.toString();
+        holder.artist_streams.text = music.artist + "  " + music.streams.toString();
     }
 }
